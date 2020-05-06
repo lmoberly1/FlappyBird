@@ -157,10 +157,14 @@ def main():
             if barrier.collision(player):
                 game_over()
             barrier.move(barrier_vel)
+            if barrier.x <= 0 - barrier.img.get_width():
+                upper_barriers.remove(barrier)
         for barrier in lower_barriers:
             if barrier.collision(player):
                 game_over()
             barrier.move(barrier_vel)
+            if barrier.x <= 0 - barrier.img.get_width():
+                lower_barriers.remove(barrier)
         if player.y >= HEIGHT - player.img.get_height():
             game_over()
 
